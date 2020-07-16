@@ -1,0 +1,25 @@
+<div class="card">
+    <h2 class="text-primary">Property Detail</h2>
+    <form #formValue="ngForm" novalidate (ngSubmit)="onDetailSubmit()">
+        <br>
+        <br> 
+    <div class="form group">
+        <select #topic="ngModel" required [class.is-invalid]="topic.invalid && topic.touched" class="custom-select"
+          name="propertytype" [(ngModel)]="propertytype">
+          <option selected >I am Interested in</option>
+          <option *ngFor="let a of pro_type">{{a}}</option>
+        </select>
+        <small [class.d-none]="topic.valid || topic.untouched">Please Choose some value</small>
+      </div>
+    <br>
+      <div class="form group">
+        <select #topic="ngModel" required [class.is-invalid]="topic.invalid && topic.touched" class="custom-select"
+          name="propertytype" [(ngModel)]="propertytype">
+          <option selected >I am Interested in</option>
+          <option *ngFor="let a of pro_type">{{a}}</option>
+        </select>
+        <small [class.d-none]="topic.valid || topic.untouched">Please Choose some value</small>
+      </div>
+
+    </form>
+</div>

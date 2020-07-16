@@ -1,0 +1,71 @@
+<h1 class="text-primary">Form</h1>
+<div class="card">
+  <div class="card-body">
+    <!-- First we have to place a ngForm to value of form  -->
+    <div class="container fluid">
+
+      <form #formValue="ngForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="form group">
+          <label>Name</label>
+          <!-- we should give all classes a name  and ngModel coz angular doesnt know which directive we want to use-->
+          <!-- [class.is-invalid] is bootstrap class which take true or false so if we want to give any alert to user use any three classes of ngmodel   -->
+          <input type="text" required #name="ngModel" name="userName" [class.is-invalid]="name.invalid && name.touched"
+            [(ngModel)]="dataModel.username" class="form-control">
+        </div>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+
+        <div class="form group">
+          <label> email</label>
+          <input type="text" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="Email"
+            [(ngModel)]="dataModel.email" class="form-control">
+        </div>
+        <div class="form group">
+          <label>Phone</label>
+          <input #phone="ngModel" required pattern="^\d{10}$" type="text"
+            [class.is-invalid]="phone.invalid && phone.touched" name="Phone" [(ngModel)]="dataModel.phone"
+            class="form-control">
+        </div>
+        <br>
+        <div class="form group">
+          <select #topic="ngModel" (ngModelChange)="mySelectHandler($event)" required
+            [class.is-invalid]="topic.invalid && topic.touched" class="custom-select" name="property"
+            [(ngModel)]="dataModel.property">
+            <option selected>I am Interested in</option>
+            <option (click)="onpropertyClick(topic.value)" *ngFor="let a of pro">{{a}}</option>
+          </select>
+          <small [class.d-none]="topic.valid || topic.untouched">Please Choose some value</small>
+        </div>
+        <!-- sales block starts -->
+        <div class="card" *ngIf="saleblockvalid">
+          <h2 class="text-primary">Property Detail</h2>
+          <form #formValue="ngForm" novalidate (ngSubmit)="onDetailSubmit()">
+            <br>
+            <br>
+            <div class="form group">
+              <select #topic="ngModel" required [class.is-invalid]="topic.invalid && topic.touched"
+                class="custom-select" name="propertytype" [(ngModel)]="propertytype">
+                <option selected>I am Interested in</option>
+                <option *ngFor="let a of pro_type">{{a}}</option>
+              </select>
+              <small [class.d-none]="topic.valid || topic.untouched">Please Choose some value</small>
+            </div>
+            <br>
+            <div class="form group">
+              <select #topic="ngModel" required [class.is-invalid]="topic.invalid && topic.touched"
+                class="custom-select" name="propertytype" [(ngModel)]="propertytype">
+                <option selected>I am Interested in</option>
+                <option *ngFor="let a of pro_type">{{a}}</option>
+              </select>
+              <small [class.d-none]="topic.valid || topic.untouched">Please Choose some value</small>
+            </div>
+
+          </form>
+        </div>
+        <!-- sales block ends -->
+
+        <button [disabled]="formValue.form.invalid" class="btn btn-primary " type="submit">Submit From</button>
+        <!-- if we want to disable the button if form have any validation just use form variable==> #form=ngForm-->
+      </form>
+    </div>
+  </div>
+</div>

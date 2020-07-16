@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e8edf1;">
+  <a class="navbar-brand" href="#">
+  </a>
+  <a class="navbar-brand" href="#">MyHome</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img class="rounded-circle" *ngIf="loggedIn"
+            src="data:image/gif;base64,R0lGODlhKAAoAPYAAGBgYGFhYWJiYmNjY2RkZGVlZWZmZmdnZ2hoaGlpaWpqamtra2xsbG1tbW5ubm9vb3BwcHFxcXJycnNzc3R0dHV1dXZ2dnd3d3h4eHt7e319fX5+fn9/f4SEhIiIiImJiYqKio2NjY+Pj5CQkJGRkZKSkpSUlJaWlpmZmZqampycnJ2dnZ6enqCgoKKioqSkpKenp6urq6ysrK+vr7CwsLGxsbOzs7S0tLi4uLm5ubq6ur6+vr+/v8LCwsXFxcbGxsjIyMnJycvLy8zMzM3NzdDQ0NHR0dLS0tPT09TU1NXV1dbW1tfX19jY2NnZ2dra2tvb29zc3N3d3d7e3t/f3+Dg4OHh4eLi4uPj4+Tk5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAAoACgAAAf+gElIg4RISYeChYSJioOCiIWMipCNjpKNh5iIm5ydnpmfoaKjpKNNpainSaeqq5utNSYeHRkOCyysr7mtra6sqk07EAMLCw7HDgcOMsCuh7/Pu8+uNwcLENgU2hC2B0S+4MBN0uBJthDaGejZtizh79Ljq+M4yuvY+NgOGdG78r/jAv5i4SAfPgr5FhAJOI+hwIcPSzhAmA2hNooOGkLcyJFFxW33EGbkSHJjjYIHQ+IrGTCKQJctm5w0eA+fAyQcXcKMwlNnk50pUNLM5+CHTp4/ff5MuvRoFBhCh+rD2bOq1atWcUiNSgHpUaZYsSahKBVbirBoeVa5CsSmPqH+HtKmXdtzbZUOKAsKXRaFrt2qVfz2pau2KlRuiPMmKWyVcN/Hdf/2NZf4GLcQj+1qhhy4c+fBnqMgG30shObNnlOrTr3DGOlzRAKDXk1btY9ixUgXg7Bjdu3fQDwMsGYLt+sFBwB0+PF7dZa1NTQQs3b8mOtuCwZoqNH3eefn3rNkiYKjxAFi3K5bt0Va5PAQOAaDr/I8Sorz9tBRGJ27+Oht3QwwgAnd0ZcFEsMgo59IxuiTGzeWXXTPeRAgYWATCaYEEn8KFrcOSPoo04R4IVhTFoT+FfdgWQ4M4MGBxFlG1Fu5GWOjjIgZZMsAQLQQY4e6WYfba69BiBwLGgwv2Z9/NVanJHtP2kgBccZVaWWVKjapZDHDXenll2DWeAB1YVqZZZndkFnmmmAeEAgAOw=="
+            width="30" height="30" alt="Cinque Terre">
+          {{loginName}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" *ngFor="let drop of forloggedinuser" value="" href="#">{{drop}}</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Contact us</a>
+      </li>
+    </ul>
+    <button routerLink="list-your-property-for-rent-sale" (click)="onClicked()" type="button" class="btn btn-info"
+      style="margin-right: 2.5em;">For Property
+      owners</button>
+
+    <form class="form-inline my-2 my-lg-0" style="margin-right: 2.5em;">
+      <input class="form-control mr-sm-2" #search type="search" search="ngModel" [(ngModel)]="val" (change)="onChange()" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="click2()" type="submit">Search</button>
+    </form>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">login</button>
+  </div>
+</nav>
